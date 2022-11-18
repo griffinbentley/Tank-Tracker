@@ -1,6 +1,6 @@
 package com.example.tanktracker
 
-data class Tracker (
+data class Tank (
     var name: String,
     val size: Int,
     var last: Int = 0,

@@ -8,13 +8,13 @@ import kotlinx.android.synthetic.main.activity_add_tank.*
 
 class AddTank : AppCompatActivity() {
 
-    private lateinit var trackerAdapter: TrackerAdapter
+    private lateinit var tankAdapter: TankAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_tank)
 
-        trackerAdapter = TrackerAdapter(mutableListOf())
+        tankAdapter = TankAdapter(mutableListOf())
 
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)

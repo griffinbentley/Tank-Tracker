@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var trackerAdapter: TrackerAdapter
+    private lateinit var tankAdapter: TankAdapter
 
     //private val ADD_TANK_REQUEST = 1
 
@@ -16,9 +16,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        trackerAdapter = TrackerAdapter(mutableListOf())
+        tankAdapter = TankAdapter(mutableListOf())
 
-        rvTankList.adapter = trackerAdapter
+        rvTankList.adapter = tankAdapter
         rvTankList.layoutManager = LinearLayoutManager(this)
 
         btnNewTank.setOnClickListener {
@@ -41,8 +41,8 @@ class MainActivity : AppCompatActivity() {
                 jSize?.let {
                     size = it
                 }
-                val tank = Tracker(name, size, 50, 50)
-                trackerAdapter.addTank(tank)
+                val tank = Tank(name, size, 50, 50)
+                tankAdapter.addTank(tank)
             }
         }
     }

@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_tank.view.*
 
-class TrackerAdapter (
-    private val tanks: MutableList<Tracker>
-) : RecyclerView.Adapter<TrackerAdapter.TrackerViewHolder>() {
+class TankAdapter (
+    private val tanks: MutableList<Tank>
+) : RecyclerView.Adapter<TankAdapter.TrackerViewHolder>() {
 
     class TrackerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -26,7 +26,7 @@ class TrackerAdapter (
         return result
     }
 
-    fun addTank(tank: Tracker) {
+    fun addTank(tank: Tank) {
         tanks.add(tank)
         notifyItemInserted(tanks.size - 1)
     }
