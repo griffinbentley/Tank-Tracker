@@ -7,15 +7,22 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_tank.view.*
 
 class TankAdapter (
-    private val tanks: MutableList<Tank>
+    private val tanks: MutableList<Tank>,
+    private val onItemClicked: (position: Int) -> Unit
 ) : RecyclerView.Adapter<TankAdapter.TrackerViewHolder>() {
 
-    class TrackerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+    class TrackerViewHolder(itemView: View, private val onItemClicked: (position: Int) -> Unit) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
+        init {
+            itemView.setOnClickListener(this)
+        }
+        override fun onClick(v:View) {
+            val position = adapterPosition
+            onItemClicked(position)
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrackerViewHolder {
-        return TrackerViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_tank, parent, false)
-        )
+        return TrackerViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_tank, parent, false), onItemClicked)
     }
 
     private fun intToDate(date: Int) : String {

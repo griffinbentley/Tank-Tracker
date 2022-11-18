@@ -3,6 +3,7 @@ package com.example.tanktracker
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        tankAdapter = TankAdapter(mutableListOf())
+        tankAdapter = TankAdapter(mutableListOf()) { position -> onListItemClick(position) }
 
         rvTankList.adapter = tankAdapter
         rvTankList.layoutManager = LinearLayoutManager(this)
@@ -45,5 +46,9 @@ class MainActivity : AppCompatActivity() {
                 tankAdapter.addTank(tank)
             }
         }
+    }
+
+    private fun onListItemClick(position: Int) {
+        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show()
     }
 }
