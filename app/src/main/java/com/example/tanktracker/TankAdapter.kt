@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_tank.view.*
 
+
 class TankAdapter (
     private val tanks: MutableList<Tank>,
     private val onItemClicked: (position: Int) -> Unit
@@ -36,6 +37,14 @@ class TankAdapter (
     fun addTank(tank: Tank) {
         tanks.add(tank)
         notifyItemInserted(tanks.size - 1)
+    }
+
+    fun editTank(position: Int) {
+        tanks[position].name = "success"
+    }
+
+    fun getTank(position: Int) : Tank {
+        return tanks[position]
     }
 
     override fun onBindViewHolder(holder: TrackerViewHolder, position: Int) {
